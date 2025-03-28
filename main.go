@@ -10,19 +10,19 @@ import (
 
 func main() {
   // Ask user input dictionary
-  //var archivo string
-  //fmt.Println("Input your dictionary location:")
-  //fmt.Scan(archivo)
+  var rutaArchivo string
+  fmt.Println("Input your dictionary location:")
+  fmt.Scan(&rutaArchivo)
 
-  archivo, err_parser := os.Open("diccionario1.txt")
+  archivoAbierto, err_parser := os.Open(rutaArchivo)
   if err_parser != nil {
     fmt.Println("Error al abrir el archivo!", err_parser)
     return
   }
-  defer archivo.Close() // Cierra el archivo
+  defer archivoAbierto.Close() // Cierra el archivo
   
   //Scanner linea por linea
-  scanner := bufio.NewScanner(archivo)
+  scanner := bufio.NewScanner(archivoAbierto)
 
   // Lee cada linea
   lineNum := 1
